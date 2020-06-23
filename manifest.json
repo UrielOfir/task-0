@@ -1,0 +1,19 @@
+  {
+    "name": "Task-0",
+    "version": "1.0",
+    "description": "Build a tool that detects and records sound above a certain threshold then saves it to .wav after it falls below the threshold",
+    "manifest_version": 2,
+    "background": {
+      "scripts": ["background.js"],
+      "persistent":true
+    },
+    "browser_action":{
+      "default_popup":"popup.html"
+    
+      
+    },
+    "permissions":["storage" , "audio"],
+    "content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'"
+    
+
+  }
