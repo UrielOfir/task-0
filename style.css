@@ -44,6 +44,12 @@ a {
     margin-top: 2rem;
     max-width: 28em;
   } 
+
+  #thresh {
+    display: flex;
+    margin-top: 2rem;
+    max-width: 28em;
+  }
   
   button {
     flex-grow: 1;
