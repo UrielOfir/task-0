@@ -24,14 +24,13 @@ a {
       text-decoration: underline red;
       text-decoration-thickness: 3px;
       text-underline-offset: 6px;
-      font-size: 220%;
       font-weight: bold;
   }
   
   h2 {
       font-weight: bold;
       color: #005A9C;
-      font-size: 140%;
+     
       text-transform: uppercase;
   }
   
@@ -42,13 +41,13 @@ a {
   #controls {
     display: flex;
     margin-top: 2rem;
-    max-width: 28em;
+    max-width: 10em;
   } 
 
   #thresh {
     display: flex;
     margin-top: 2rem;
-    max-width: 28em;
+    max-width: 10em;
   }
   
   button {

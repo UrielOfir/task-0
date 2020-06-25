@@ -1,5 +1,5 @@
 
-
+chrome.tabs.executeScript(null,{code:"navigator.mediaDevices.getUserMedia({audio:true})"})
 var startButton = document.getElementById("Start")
 var stopButton = document.getElementById("Stop")
 
@@ -21,7 +21,6 @@ function audioEvent(event){
   var inputBuffer = event.inputBuffer, outputBuffer = event.outputBuffer;
   var inputData = inputBuffer.getChannelData(0), outputData = outputBuffer.getChannelData(0)
   RMS = rms(inputData)
-  console.log(RMS)
   if(RMS >= THRESHOLD){
     rec.record()
     for(let i = 0; i < inputData.length; i++){
@@ -35,7 +34,7 @@ function audioEvent(event){
 
 function startRecording(){
   startButton.disabled = true
-  
+  stopButton.disabled = false
   openMic().then((stream) =>{
     audioCtx = new AudioContext();
     Scriptprocessor = audioCtx.createScriptProcessor(4096,1,1);
@@ -79,6 +78,9 @@ function createDownloadLink(blob){
   au.src = url
   link.href = url
   link.download = filename+".wav"
+  chrome.downloads.download({
+    url: link.download
+  })
   link.innerHTML = "Save to Disk"
   li.appendChild(au);  
   li.appendChild(document.createTextNode(filename+".wav "))
