@@ -1,5 +1,5 @@
 
-chrome.tabs.executeScript(null,{code:"navigator.mediaDevices.getUserMedia({audio:true})"})
+
 var startButton = document.getElementById("Start")
 var stopButton = document.getElementById("Stop")
 
@@ -9,7 +9,7 @@ stopButton.addEventListener("click",stopRecording)
 
 var audioCtx;
 var Scriptprocessor;
-const THRESHOLD = 0.5;
+const THRESHOLD = 2;
 var source;
 
 async function openMic(){
@@ -79,7 +79,8 @@ function createDownloadLink(blob){
   link.href = url
   link.download = filename+".wav"
   chrome.downloads.download({
-    url: link.download
+    url:url,
+    filename: link.download
   })
   link.innerHTML = "Save to Disk"
   li.appendChild(au);  
