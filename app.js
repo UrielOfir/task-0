@@ -9,7 +9,7 @@ stopButton.addEventListener("click",stopRecording)
 
 var audioCtx;
 var Scriptprocessor;
-const THRESHOLD = 2;
+const THRESHOLD = 1;
 var source;
 
 async function openMic(){
