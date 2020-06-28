@@ -4,14 +4,24 @@
     "description": "Build a tool that detects and records sound above a certain threshold then saves it to .wav after it falls below the threshold",
     "manifest_version": 2,
     "background":{
+      
       "scripts":["background.js"],
-      "persistent":true
+      "persistent": false
     },
+    "content_scripts": [
+      {
+        "matches": [
+          "<all_urls>"
+        ],
+        "js": ["content.js","src/app.js","src/recorder.js"]
+      }
+    ],
     "browser_action":{
-      "default_popup":"popup.html"
+      "default_icon":"icons/icon2.png"
     },
-    "content_security_policy": "script-src 'self' https://cdn.rawgit.com; object-src 'self'",
-    "permissions":["tabs","downloads"]
+   
+   "content_security_policy": "script-src 'self' https://cdn.rawgit.com; object-src 'self'",
+    "permissions":["tabs","downloads","storage"]
     
 
   }
