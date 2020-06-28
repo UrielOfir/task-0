@@ -43,6 +43,7 @@ function startRecording(){
     Scriptprocessor.onaudioprocess = audioEvent
     source.connect(Scriptprocessor)
     rec = new Recorder(Scriptprocessor)
+    rec.configure({numChannels : 1})
 
   }).catch((e)=>{
       console.log(e)
@@ -55,7 +56,9 @@ function eventStopped(){
   rec.stop()
   rec.exportWAV(createDownloadLink)
   rec.clear()
+
   rec = new Recorder(Scriptprocessor)
+  rec.configure({numChannels : 1})
  
 }
 
